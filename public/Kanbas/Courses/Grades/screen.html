@@ -1,0 +1,105 @@
+<html>
+  <head>
+    <script src="/Kanbas/Navigation/index.js"></script>
+    <script src="/Kanbas/Courses/Navigation/index.js"></script>
+  </head>
+  <body>
+    <table width="100%">
+      <tbody>
+        <tr>
+          <td valign="top">
+            <script>
+              const kanbasNavigation = KanbasNavigation();
+              document.write(kanbasNavigation);
+            </script>
+          </td>
+          <td valign="top">
+            <script>
+              const courseNavigation = CourseNavigation("Grades");
+              document.write(courseNavigation);
+            </script>
+          </td>
+          <td valign="top">
+            <table width="100%">
+              <tbody>
+                <tr>
+                  <td>
+                    <select>
+                      <option>Gradebook</option>
+                      <option>Change Gradebook View</option>
+                      <option>Traditional Gradebook</option>
+                      <option>Individual Gradebook</option>
+                    </select>
+                    <button>Import</button>
+                    <select>
+                      <option>Export</option>
+                      <option>Export Current Gradebook View</option>
+                      <option>Export Entire Gradebook</option></select
+                    >&nbsp;<button>Configure</button><br />
+                    <label><h3>Student Names</h3></label>
+                    <input placeholder="Search Students" /><br />
+                    <label><h3>Assignment Names</h3></label>
+                    <input placeholder="Search Assignment" /><br /><br />
+                    <button>Apply Filters</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <br />
+            <table width="100%" border="1">
+              <thead>
+                <tr>
+                  <th rowspan="2">Student Name</th>
+                  <th>A1 SETUP<br />Out of 100</th>
+                  <th>A2 HTML<br />Out of 100</th>
+                  <th>A3 CSS<br />Out of 100</th>
+                  <th>A4 BOOTSTRAP<br />Out of 100</th>
+                  <th>A5 JAVASCRIPT<br />Out of 100</th>
+                  <th>A6 REACT<br />Out of 100</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Alice Wonderland</td>
+                  <td>85</td>
+                  <td>90</td>
+                  <td><input value="100" type="number" max="100" min="0" /></td>
+                  <td>100</td>
+                  <td>98</td>
+                  <td>99</td>
+                </tr>
+                <tr>
+                  <td>Charlie Brown</td>
+                  <td>90</td>
+                  <td><input value="100" type="number" max="100" min="0" /></td>
+                  <td>89</td>
+                  <td>100</td>
+                  <td>95</td>
+                  <td>100</td>
+                </tr>
+                <tr>
+                  <td>Luke Skywalker</td>
+                  <td>100</td>
+                  <td><input value="100" type="number" max="100" min="0" /></td>
+                  <td>98</td>
+                  <td>100</td>
+                  <td>99</td>
+                  <td>100</td>
+                </tr>
+                <tr>
+                  <td>Han Solo</td>
+                  <td>96</td>
+                  <td><input value="100" type="number" max="100" min="0" /></td>
+                  <td>83</td>
+                  <td>100</td>
+                  <td>92</td>
+                  <td>88</td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

@@ -1,0 +1,160 @@
+<html>
+  <head>
+    <script src="/Kanbas/Navigation/index.js"></script>
+    <script src="/Kanbas/Courses/Navigation/index.js"></script>
+    <script src="/Kanbas/Courses/Assignments/index.js"></script>
+  </head>
+  <body>
+    <table width="100%">
+      <tbody>
+        <tr>
+          <td valign="top">
+            <script>
+              const kanbasNavigation = KanbasNavigation();
+              document.write(kanbasNavigation);
+            </script>
+          </td>
+          <td valign="top">
+            <script>
+              const courseNavigation = CourseNavigation("Assignments");
+              document.write(courseNavigation);
+            </script>
+          </td>
+          <td valign="top">
+            <input placeholder="Search for Assignments" />
+            <button>+ Group</button>
+            <button>+ Assignment</button>
+            <select>
+              <option>Edit Assignment Dates</option>
+              <option>Assignment Groups Weight</option>
+              <option>Gradescope 1.3</option>
+              <option>Commons Favorites</option>
+            </select>
+
+            <h3>
+              ASSIGNMENTS 40% of Total
+              <script>
+                const assignmentMenu = AssignmentMenu("A1");
+                document.write(assignmentMenu);
+              </script>
+            </h3>
+            <ul>
+              <li>
+                <a href="/Kanbas/Courses/Assignments/Editor/screen.html?assignment=A1"
+                  >A1 - ENV + HTML</a
+                ><br />
+                <a href="#">Multiple Modules</a>
+                <span>| Not available yet</span>
+              </li>
+              <li>
+                <a href="/Kanbas/Courses/Assignments/Editor/screen.html?assignment=A2"
+                  >A2 - CSS + BOOTSTRAP</a
+                ><br />
+                <a href="#">Multiple Modules</a>
+                <span>| Not available yet</span>
+              </li>
+              <li>
+                <a href="/Kanbas/Courses/Assignments/Editor/screen.html?assignment=A3"
+                  >A3 - JS + REACT</a
+                ><br />
+                <a href="#">Multiple Modules</a>
+                <span>| Not available yet</span>
+              </li>
+              <li>
+                <a href="/Kanbas/Courses/Assignments/Editor/screen.html?assignment=A4"
+                  >A4 - STATE + REDUX</a
+                ><br />
+                <a href="#">Multiple Modules</a>
+                <span>| Not available yet</span>
+              </li>
+              <li>
+                <a href="/Kanbas/Courses/Assignments/Editor/screen.html?assignment=A5"
+                  >A5 - NODE + SESSION</a
+                ><br />
+                <a href="#">Multiple Modules</a>
+                <span>| Not available yet</span>
+              </li>
+              <li>
+                <a href="/Kanbas/Courses/Assignments/Editor/screen.html?assignment=A6"
+                  >A6 - MONGO + MONGOOSE</a
+                ><br />
+                <a href="#">Multiple Modules</a>
+                <span>| Not available yet</span>
+              </li>
+            </ul>
+            <h3>
+              QUIZZES 10% of Total
+              <script>
+                document.write(assignmentMenu);
+              </script>
+            </h3>
+            <ul>
+              <li>
+                <a href="/Kanbas/Courses/Assignments/Editor/screen.html?quiz=Q1">Q1 - HTML</a
+                ><br />
+                <a href="#">Multiple Modules</a>
+                <span>| Not available yet</span>
+              </li>
+              <li>
+                <a href="/Kanbas/Courses/Assignments/Editor/screen.html?quiz=Q2">Q2 - CSS</a
+                ><br />
+                <a href="#">Multiple Modules</a>
+                <span>| Not available yet</span>
+              </li>
+              <li>
+                <a href="/Kanbas/Courses/Assignments/Editor/screen.html?quiz=Q3"
+                  >Q3 - JS, ES6</a
+                ><br />
+                <a href="#">Multiple Modules</a>
+                <span>| Not available yet</span>
+              </li>
+              <li>
+                <a href="/Kanbas/Courses/Assignments/Editor/screen.html?quiz=Q4">Q4 - NODE</a
+                ><br />
+                <a href="#">Multiple Modules</a>
+                <span>| Not available yet</span>
+              </li>
+              <li>
+                <a href="/Kanbas/Courses/Assignments/Editor/screen.html?quiz=Q5">Q5 - MONGO</a
+                ><br />
+                <a href="#">Multiple Modules</a>
+                <span>| Not available yet</span>
+              </li>
+            </ul>
+            <h3>
+              EXAMS 20% of Total
+              <script>
+                document.write(assignmentMenu);
+              </script>
+            </h3>
+            <ul>
+              <li>
+                <a href="#">Midterm</a><br />
+                <a href="#">Multiple Modules</a>
+                <span>| Not available yet</span>
+              </li>
+              <li>
+                <a href="#">Final</a><br />
+                <a href="#">Multiple Modules</a>
+                <span>| Not available yet</span>
+              </li>
+            </ul>
+            <h3>
+              PROJECT 30% of Total
+              <script>
+                document.write(assignmentMenu);
+              </script>
+            </h3>
+            <ul>
+              <li>
+                <a href="#">Project</a><br />
+                <a href="#">Multiple Modules</a>
+                <span>| Not available yet</span>
+              </li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
