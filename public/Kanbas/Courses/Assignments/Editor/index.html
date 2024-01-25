@@ -1,0 +1,70 @@
+<select>
+  <option>SpeedGrader</option>
+</select>
+<hr />
+<label for="wd-assignment-name"><h3>Assignment Name</h3></label>
+<p><input value="A1 - ENV + HTML" id="wd-assignment-name" /></p>
+<p>
+  <textarea>This is the assignment description.</textarea>
+</p>
+<p>
+  <label>Points</label><br />
+  <input type="number" value="100" min="0" max="100" />
+</p>
+<p>
+  <label>Assignment Group</label> <br /><select>
+    <option>ASSIGNMENTS</option>
+    <option>Group 1</option>
+    <option>Group 2</option>
+    <option>Group 3</option>
+  </select>
+</p>
+<p>
+  <label> Display Grade as</label> <br /><select>
+    <option>Percentage</option>
+  </select>
+</p>
+<p>
+  <label>Submission Type</label> <br /><select>
+    <option>Online</option>
+  </select>
+</p>
+<p>
+  <label>Online Entry Options</label><br />
+  <input type="checkbox" name="wd-entry-options" id="wd-text-entry" />
+  <label for="wd-text-entry">Text Entry</label><br />
+  <input type="checkbox" name="wd-entry-options" id="wd-website-url" />
+  <label for="wd-website-url">Website URL</label><br />
+  <input type="checkbox" name="wd-entry-options" id="wd-media-recordings" />
+  <label for="wd-media-recordings">Media Recordings</label><br />
+  <input type="checkbox" name="wd-entry-options" id="wd-student-annotations" />
+  <label for="wd-student-annotations">Student Annotations</label><br />
+  <input type="checkbox" name="wd-entry-options" id="wd-file-uploads" />
+  <label for="wd-file-uploads">File Uploads</label><br />
+</p>
+<p>
+  <label>Assign</label><br />
+  <label>Assign to</label><br/>
+  <input name="wd-assign-to" value="Everyone" />
+</p>
+<p>
+  <label>Due</label><br />
+  <input name="wd-due-date" type="date" value="2021-01-01" />
+</p>
+<p>
+  <label>Available From</label><br />
+  <input name="wd-available-from" type="date" value="2021-01-01" />
+</p>
+<p>
+  <label>Until</label><br />
+  <input name="wd-available-until" type="date" value="2021-01-01" />
+</p>
+<p>
+  <button>Cancel</button>
+  <button type="submit">Save</button>
+</p>
+
+<!--
+
+    http://localhost:3000/Kanbas/Courses/Assignments/screen.html?wd-due-date=2021-01-01&wd-available-from=2021-01-01&wd-available-until=2021-01-01
+-->
