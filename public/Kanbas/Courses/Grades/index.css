@@ -16,3 +16,14 @@
 .table-bordered td {
   border: 1px solid #dee2e6;
 }
+
+.wd-course-navigation-sm-size {
+  background-color: black;
+  color: white;
+  padding: 20px;
+}
+
+.wd-course-navigation-sm-size a {
+  text-decoration: none;
+  color: white;
+}

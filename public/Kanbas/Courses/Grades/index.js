@@ -39,40 +39,38 @@ function StudentList() {
   ];
   return `
   <div class="table-responsive">
-  <table class="table table-striped table-bordered">
-    <thead>
-      <tr>
-        <th>Student Name</th>
-        <th>A1 SETUP<br />Out of 100</th>
-        <th>A2 HTML<br />Out of 100</th>
-        <th>A3 CSS<br />Out of 100</th>
-        <th>A4 BOOTSTRAP<br />Out of 100</th>
-        <th>A5 JAVASCRIPT<br />Out of 100</th>
-        <th>A6 REACT<br />Out of 100</th>
-      </tr>
-    </thead>
-    ${students
-      .map((student) => {
-        return `
-          <tr>
-            <td>${student.name}</td>
-            <td>${student.a1}%</td>
-            <td>${student.a2}%</td>
-            <td>
-                <div class="d-flex">
-                    <input class="form-control" value="100" />&nbsp;<i
-                        class="fa fa-arrow-circle-right"
-                    ></i>
-                </div>
-            </td>
-            <td>${student.a4}%</td>
-            <td>${student.a5}%</td>
-            <td>${student.a6}%</td>
-            </tr>`;
-      })
-      .join("")}
-
-
+    <table class="table table-striped table-bordered">
+      <thead>
+        <tr>
+          <th>Student Name</th>
+          <th>A1 SETUP<br />Out of 100</th>
+          <th>A2 HTML<br />Out of 100</th>
+          <th>A3 CSS<br />Out of 100</th>
+          <th>A4 BOOTSTRAP<br />Out of 100</th>
+          <th>A5 JAVASCRIPT<br />Out of 100</th>
+          <th>A6 REACT<br />Out of 100</th>
+        </tr>
+      </thead>
+      ${students
+        .map((student) => {
+          return `
+            <tr>
+              <td>${student.name}</td>
+              <td>${student.a1}%</td>
+              <td>${student.a2}%</td>
+              <td>
+                  <div class="d-flex">
+                      <input class="form-control" value="100" />&nbsp;<i
+                          class="fa fa-arrow-circle-right"
+                      ></i>
+                  </div>
+              </td>
+              <td>${student.a4}%</td>
+              <td>${student.a5}%</td>
+              <td>${student.a6}%</td>
+              </tr>`;
+        })
+        .join("")}
       </table>
               `;
 }
