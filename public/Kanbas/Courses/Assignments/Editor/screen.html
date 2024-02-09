@@ -2,94 +2,219 @@
   <head>
     <script src="/Kanbas/Navigation/index.js"></script>
     <script src="/Kanbas/Courses/Navigation/index.js"></script>
+    <script src="/Kanbas/Courses/Assignments/index.js"></script>
+
+    <link href="/libs/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Kanbas/Navigation/index.css" rel="stylesheet" />
+    <link href="/Kanbas/Courses/Navigation/index.css" rel="stylesheet" />
+    <link href="/Kanbas/style.css" rel="stylesheet" />
+    <!-- Load font awesome icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
   </head>
   <body>
-    <form action="/Kanbas/Courses/Assignments/screen.html">
-      <table width="100%">
-        <tbody>
-          <tr>
-            <td valign="top">
-              <script>
-                const kanbasNavigation = KanbasNavigation();
-                document.write(kanbasNavigation);
-              </script>
-            </td>
-            <td valign="top">
-              <script>
-                const courseNavigation = CourseNavigation("Assignments");
-                document.write(courseNavigation);
-              </script>
-            </td>
-            <td valign="top">
-              <select>
-                <option>SpeedGrader</option>
+    <div class="d-flex">
+      <div class="d-none d-md-block">
+        <script>
+          const kanbasNavigation = KanbasNavigation("Courses");
+          document.write(kanbasNavigation);
+        </script>
+      </div>
+      <div class="d-none d-md-block">
+        <script>
+          const courseNavigation = CourseNavigation("Assignments");
+          document.write(courseNavigation);
+        </script>
+      </div>
+
+      <div class="flex-fill px-5">
+        <div class="row d-xs-block">
+          <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="me-4">
+                <a href="/Kanbas/Navigation/screen.html">
+                  <i class="fa fa-bars" style="color: #000000"></i
+                ></a>
+              </li>
+              <li class="breadcrumb-item">
+                <a href="/Kanbas/Courses/Home/screen.html">CS5610.11744.202310</a>
+              </li>
+              <li class="breadcrumb-item">
+                <a href="/Kanbas/Courses/Assignments/screen.html">Assignments</a>
+              </li>
+              <li class="breadcrumb-item active">A1 - ENV + HTML</li>
+            </ol>
+            <div class="float-end">
+              <a href="/Kanbas/Courses/Navigation/screen.html" style="color: black"
+                ><i class="fa fa-chevron-down"></i
+              ></a>
+            </div>
+          </nav>
+        </div>
+
+        <hr />
+
+        <div class="d-flex">
+          <div class="ms-auto">
+            <button class="btn btn-success" disabled>
+              <i class="fa fa-check-circle"></i> Published
+            </button>
+            <button class="btn btn-light border"><i class="fa fa-ellipsis-v"></i></button>
+          </div>
+        </div>
+
+        <hr />
+
+        <form action="/Kanbas/Courses/Assignments/screen.html">
+          <label>
+            <h5>Assignment Name</h5>
+          </label>
+          <input value="A1 - ENV + HTML" class="form-control" />
+
+          <br />
+
+          <textarea class="form-control">This is the assignment description</textarea>
+
+          <br />
+
+          <div class="row">
+            <div class="col-md-6 text-end">
+              <label>Points</label>
+            </div>
+            <div class="col-md-6">
+              <input type="number" class="form-control" value="100" />
+            </div>
+          </div>
+
+          <br />
+
+          <div class="row">
+            <div class="col-md-6 text-end">
+              <label class="mx-3">Assignment Group</label>
+            </div>
+            <div class="col-md-6">
+              <select class="form-control">
+                <option>ASSIGNMENTS</option>
+                <option>QUIZZES</option>
+                <option>EXAMS</option>
+                <option>PROJECT</option>
               </select>
-              <hr />
-              <label for="wd-assignment-name"><h3>Assignment Name</h3></label>
-              <p><input value="A1 - ENV + HTML" id="wd-assignment-name" /></p>
-              <p>
-                <textarea>This is the assignment description.</textarea>
-              </p>
-              <p>
-                <label>Points</label><br />
-                <input type="number" value="100" min="0" max="100" />
-              </p>
-              <p>
-                <label>Assignment Group</label> <br /><select>
-                  <option>ASSIGNMENTS</option>
-                  <option>Group 1</option>
-                  <option>Group 2</option>
-                  <option>Group 3</option>
-                </select>
-              </p>
-              <p>
-                <label> Display Grade as</label> <br /><select>
-                  <option>Percentage</option>
-                </select>
-              </p>
-              <p>
-                <label>Submission Type</label> <br /><select>
-                  <option>Online</option>
-                </select>
-              </p>
-              <p>
-                <label>Online Entry Options</label><br />
-                <input type="checkbox" name="wd-entry-options" id="wd-text-entry" />
-                <label for="wd-text-entry">Text Entry</label><br />
-                <input type="checkbox" name="wd-entry-options" id="wd-website-url" />
-                <label for="wd-website-url">Website URL</label><br />
-                <input type="checkbox" name="wd-entry-options" id="wd-media-recordings" />
-                <label for="wd-media-recordings">Media Recordings</label><br />
-                <input type="checkbox" name="wd-entry-options" id="wd-student-annotations" />
-                <label for="wd-student-annotations">Student Annotations</label><br />
-                <input type="checkbox" name="wd-entry-options" id="wd-file-uploads" />
-                <label for="wd-file-uploads">File Uploads</label><br />
-              </p>
-              <p>
-                <label>Assign</label><br />
-                <label>Assign to</label><br/>
-                <input name="wd-assign-to" value="Everyone" />
-              </p>
-              <p>
-                <label>Due</label><br />
-                <input name="wd-due-date" type="date" value="2021-01-01" />
-              </p>
-              <p>
-                <label>Available From</label><br />
-                <input name="wd-available-from" type="date" value="2021-01-01" />
-              </p>
-              <p>
-                <label>Until</label><br />
-                <input name="wd-available-until" type="date" value="2021-01-01" />
-              </p>
-              <p>
-                <button>Cancel</button>
-                <button type="submit">Save</button>
-              </p>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </form>
+            </div>
+          </div>
+
+          <br />
+
+          <div class="row">
+            <div class="col-md-6 text-end">
+              <label>Display Grade as</label>
+            </div>
+            <div class="col-md-6">
+              <select class="form-control">
+                <option>Percentage</option>
+                <option>Points</option>
+                <option>Complete/Incomplete</option>
+                <option>Letter Grade</option>
+              </select>
+            </div>
+          </div>
+
+          <br />
+
+          <div class="row">
+            <div class="col-md-6 text-end">
+              <label>Submission Type</label>
+            </div>
+            <div class="col-md-6">
+              <select class="form-control">
+                <option>Online</option>
+                <option>On Paper</option>
+                <option>No Submission</option>
+              </select>
+            </div>
+          </div>
+
+          <br />
+
+          <div class="row">
+            <div class="col-md-6 text-end">
+              <label>Online Entry Options</label>
+            </div>
+            <div class="col-md-6">
+              <input type="checkbox" id="online_entry_options1" />
+              <label for="online_entry_options1">Text Entry</label>
+              <br />
+              <input type="checkbox" id="online_entry_options2" />
+              <label for="online_entry_options2">Website URL</label>
+              <br />
+              <input type="checkbox" id="online_entry_options3" />
+              <label for="online_entry_options3">Media Recordings</label>
+              <br />
+              <input type="checkbox" id="online_entry_options4" />
+              <label for="online_entry_options4">Student Annotation</label>
+              <br />
+              <input type="checkbox" id="online_entry_options5" />
+              <label for="online_entry_options5">File Uploads</label>
+
+              <br /><br />
+              <input type="checkbox" id="count-final-grade" />
+              <label for="count-final-grade"
+                >Do not count this assignment towards the final grade</label
+              >
+            </div>
+          </div>
+
+          <br />
+
+          <div class="row">
+            <div class="col-md-6 text-end">
+              <label>Assign</label>
+            </div>
+            <div class="col-md-6">
+              <div class="border p-2">
+                <label><b>Assign to</b></label>
+                <br />
+                <input class="form-control" value="Everyone" />
+                <br />
+
+                <label><b>Due</b></label>
+                <input class="form-control" type="date" />
+                <br />
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <label><b>Available from</b></label>
+                    <input class="form-control w-30" type="date" />
+                  </div>
+
+                  <div class="col-md-6">
+                    <label><b>Until</b></label>
+                    <input class="form-control w-30" type="date" />
+                  </div>
+                </div>
+                <br />
+
+                <button class="btn w-100 btn-secondary rounded-0">+ Add</button>
+              </div>
+            </div>
+          </div>
+
+          <hr />
+          <div class="d-flex">
+            <div>
+              <input type="checkbox" id="notify_users" />
+              <label for="notify_users">Notify users that this content has changed</label>
+              <br />
+            </div>
+            <div class="ms-auto">
+              <button class="btn" style="background-color: lightgrey">Cancel</button>
+              <button class="btn btn-danger">Save</button>
+            </div>
+          </div>
+          <hr />
+        </form>
+      </div>
+    </div>
   </body>
 </html>

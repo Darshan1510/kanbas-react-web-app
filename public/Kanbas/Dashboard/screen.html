@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <script src="/Kanbas/Navigation/index.js"></script>
+    <script src="/Kanbas/Courses/Navigation/index.js"></script>
+    <script src="/Kanbas/Courses/Assignments/index.js"></script>
+    <script src="/Kanbas/Dashboard/CourseCard/index.js"></script>
+
+    <link href="/libs/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Kanbas/Navigation/index.css" rel="stylesheet" />
+    <link href="/Kanbas/style.css" rel="stylesheet" />
+    <!-- Load font awesome icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <div class="d-flex">
+      <div class="d-none d-md-block">
+        <script>
+          const kanbasNavigation = KanbasNavigation("Dashboard");
+          document.write(kanbasNavigation);
+        </script>
+      </div>
+      <div class="p-1" style="flex-grow: 1">
+        <div class="p-4">
+          <h1>Dashboard</h1>
+          <hr />
+          <h2>Published Courses (7)</h2>
+          <hr />
+          <div class="row">
+            <script>
+              const couseCards = CourseCard();
+              document.write(couseCards);
+            </script>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
