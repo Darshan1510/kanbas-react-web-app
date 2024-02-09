@@ -1,0 +1,23 @@
+.form-check-input {
+  border-radius: 50%;
+}
+
+.wd-course-home-btn {
+  width: 100%;
+  text-align: start;
+}
+.comming-up li {
+  border: none;
+}
+
+.wd-course-navigation-sm-size {
+  background-color: black;
+  color: white;
+  padding: 20px;
+  /* margin-bottom: 20px; */
+}
+
+.wd-course-navigation-sm-size a {
+  text-decoration: none;
+  color: white;
+}

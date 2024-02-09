@@ -75,13 +75,13 @@ function CourseNavigation(location) {
   ];
 
   return `
-      <ul>
+      <ul class="wd-course-navigation">
           ${links
             .map((link) => {
               return `
-                  <li><a style="color:${link.name === location ? "red" : "black"}" href="${
-                link.url
-              }">${link.name}</a></li>
+              <li class="${link.name === location ? "wd-active" : ""}"><a href="${link.url}">${
+                link.name
+              }</a></li>
                   `;
             })
             .join("")}

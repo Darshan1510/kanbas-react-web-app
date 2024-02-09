@@ -1,105 +1,118 @@
 <html>
+  <title>Grades</title>
   <head>
     <script src="/Kanbas/Navigation/index.js"></script>
     <script src="/Kanbas/Courses/Navigation/index.js"></script>
+    <script src="/Kanbas/Courses/Assignments/index.js"></script>
+    <script src="/Kanbas/Courses/Grades/index.js"></script>
+
+    <link href="/libs/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Kanbas/Navigation/index.css" rel="stylesheet" />
+    <link href="/Kanbas/Courses/Grades/index.css" rel="stylesheet" />
+    <link href="/Kanbas/Courses/Navigation/index.css" rel="stylesheet" />
+    <link href="/Kanbas/style.css" rel="stylesheet" />
+    <!-- Load font awesome icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
   </head>
   <body>
-    <table width="100%">
-      <tbody>
-        <tr>
-          <td valign="top">
-            <script>
-              const kanbasNavigation = KanbasNavigation();
-              document.write(kanbasNavigation);
-            </script>
-          </td>
-          <td valign="top">
-            <script>
-              const courseNavigation = CourseNavigation("Grades");
-              document.write(courseNavigation);
-            </script>
-          </td>
-          <td valign="top">
-            <table width="100%">
-              <tbody>
-                <tr>
-                  <td>
-                    <select>
-                      <option>Gradebook</option>
-                      <option>Change Gradebook View</option>
-                      <option>Traditional Gradebook</option>
-                      <option>Individual Gradebook</option>
-                    </select>
-                    <button>Import</button>
-                    <select>
-                      <option>Export</option>
-                      <option>Export Current Gradebook View</option>
-                      <option>Export Entire Gradebook</option></select
-                    >&nbsp;<button>Configure</button><br />
-                    <label><h3>Student Names</h3></label>
-                    <input placeholder="Search Students" /><br />
-                    <label><h3>Assignment Names</h3></label>
-                    <input placeholder="Search Assignment" /><br /><br />
-                    <button>Apply Filters</button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            <br />
-            <table width="100%" border="1">
-              <thead>
-                <tr>
-                  <th rowspan="2">Student Name</th>
-                  <th>A1 SETUP<br />Out of 100</th>
-                  <th>A2 HTML<br />Out of 100</th>
-                  <th>A3 CSS<br />Out of 100</th>
-                  <th>A4 BOOTSTRAP<br />Out of 100</th>
-                  <th>A5 JAVASCRIPT<br />Out of 100</th>
-                  <th>A6 REACT<br />Out of 100</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Alice Wonderland</td>
-                  <td>85</td>
-                  <td>90</td>
-                  <td><input value="100" type="number" max="100" min="0" /></td>
-                  <td>100</td>
-                  <td>98</td>
-                  <td>99</td>
-                </tr>
-                <tr>
-                  <td>Charlie Brown</td>
-                  <td>90</td>
-                  <td><input value="100" type="number" max="100" min="0" /></td>
-                  <td>89</td>
-                  <td>100</td>
-                  <td>95</td>
-                  <td>100</td>
-                </tr>
-                <tr>
-                  <td>Luke Skywalker</td>
-                  <td>100</td>
-                  <td><input value="100" type="number" max="100" min="0" /></td>
-                  <td>98</td>
-                  <td>100</td>
-                  <td>99</td>
-                  <td>100</td>
-                </tr>
-                <tr>
-                  <td>Han Solo</td>
-                  <td>96</td>
-                  <td><input value="100" type="number" max="100" min="0" /></td>
-                  <td>83</td>
-                  <td>100</td>
-                  <td>92</td>
-                  <td>88</td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="d-flex">
+      <div class="d-none d-md-block">
+        <script>
+          const kanbasNavigation = KanbasNavigation("Courses");
+          document.write(kanbasNavigation);
+        </script>
+      </div>
+      <div class="d-none d-md-block">
+        <script>
+          const courseNavigation = CourseNavigation("Grades");
+          document.write(courseNavigation);
+        </script>
+      </div>
+      <div class="flex-fill">
+        <div class="d-block d-md-none wd-course-navigation-sm-size">
+          <div class="row">
+            <div class="col-2">
+              <a href="/Kanbas/Navigation/screen.html"
+                ><i class="fa fa-bars"></i
+              ></a>
+            </div>
+            <div class="col-8">CS5610 Web Development</div>
+            <div class="col-2">
+              <a href="/Kanbas/Courses/Navigation/screen.html"
+                ><i class="fa fa-chevron-down fs-2"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+        <div class="row fs-4 mt-3 ps-0 pb-0 d-none d-md-block">
+          <nav style="--bs-breadcrumb-divider: '>'; padding-left: 15px" aria-label="breadcrumb">
+            <ol class="breadcrumb mb-0">
+              <li class="me-3">
+                <i class="fa fa-bars" style="color: #000000"></i>
+              </li>
+              <li class="breadcrumb-item">
+                <a class="text-decoration-none text-danger" href="/Kanbas/Courses/Home/screen.html">CS5610 Web Development</a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">Grades</li>
+            </ol>
+          </nav>
+        </div>
+        <hr />
+        <div class="d-flex justify-content-end">
+          <select
+            class="form-select d-inline float-end me-2"
+            style="width: 15% !important"
+            aria-label="Gradebook"
+          >
+            <option value="Gradebook" selected>Gradebook</option>
+          </select>
+          <button class="btn mx-2" style="background-color: lightgrey">
+            <i class="fa fa-upload mx-1"></i>Import
+          </button>
+          <button class="btn mx-2" style="background-color: lightgrey">
+            <i class="fa fa-download mx-1"></i>Export
+          </button>
+          <button class="btn mx-2" style="background-color: lightgrey">
+            <i class="fa fa-gear"></i>
+          </button>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <b>Student Names</b>
+            <div class="input-group">
+              <span class="input-group-text"><i class="fa fa-search"></i> </span>
+              <input placeholder="Search Students" type="text" class="form-control" />
+              <span class="input-group-text"><i class="fa fa-caret-down"></i></span>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <b>Assignment Names</b>
+            <div class="input-group">
+              <span class="input-group-text"><i class="fa fa-search"></i> </span>
+              <input placeholder="Search Assignments" type="text" class="form-control" />
+              <span class="input-group-text"><i class="fa fa-caret-down"></i></span>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <button class="btn p-1 m-2" style="background-color: lightgrey">
+            <i class="fa fa-filter mx-1"></i>Apply Filters
+          </button>
+        </div>
+        <br />
+        <div>
+          <script>
+            const studentList = StudentList();
+            document.write(studentList);
+          </script>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
