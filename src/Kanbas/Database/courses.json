@@ -1,38 +1,26 @@
 [
   {
-    "_id": "SP101",
-    "name": "Web Development",
-    "text": "React JS, Node JS, MongoDB",
-    "image": "/images/reactjs.webp",
-    "number": "WD101",
+    "_id": "RS101",
+    "name": "Rocket Propulsion",
+    "number": "RS4550",
     "startDate": "2023-01-10",
-    "endDate": "2023-05-15"
+    "endDate": "2023-05-15",
+    "image": "/images/ml.jpg"
   },
   {
-    "_id": "SP102",
-    "name": "Information Retrieval",
-    "text": "Effective search techniques, Elastic search",
-    "image": "/images/elasticsearch.png",
-    "number": "IR102",
+    "_id": "RS102",
+    "name": "Aerodynamics",
+    "number": "RS4560",
     "startDate": "2023-01-10",
-    "endDate": "2023-05-15"
+    "endDate": "2023-05-15",
+    "image": "/images/elasticsearch.png"
   },
   {
-    "_id": "SP103",
-    "name": "Program Design Paradigm",
-    "text": "Object-oriented design, Java, Design patterns",
-    "image": "/images/java.png",
-    "number": "PDP103",
+    "_id": "RS103",
+    "name": "Spacecraft Design",
+    "number": "RS4570",
     "startDate": "2023-01-10",
-    "endDate": "2023-05-15"
-  },
-  {
-    "_id": "SP104",
-    "name": "Machine Learning",
-    "text": "Supervised and Unsupervised machine learning",
-    "image": "/images/ml.jpg",
-    "number": "ML104",
-    "startDate": "2023-01-10",
-    "endDate": "2023-05-15"
+    "endDate": "2023-05-15",
+    "image": "/images/reactjs.webp"
   }
 ]

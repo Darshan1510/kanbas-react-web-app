@@ -1,5 +1,7 @@
 import { assignments, enrollments, grades, users } from "../../Database";
 import { useParams } from "react-router-dom";
+import { FaArrowCircleRight } from "react-icons/fa";
+
 function Grades() {
   const { courseId } = useParams();
   const as = assignments.filter((assignment) => assignment.course === courseId);
@@ -60,29 +62,45 @@ function Grades() {
         </button>
       </div>
       <br />
-      <div>
-        <table className="table-responsive">
+      <div className="table-responsive">
+        <table className="table table-striped table-bordered">
           <thead>
-            <th>Student Name</th>
-            {as.map((assignment) => (
-              <th>{assignment.title}</th>
-            ))}
+            <tr>
+              <th>Student Name</th>
+              {as.map((assignment) => (
+                <th>
+                  {assignment.title}
+                  <br />
+                  Out of {assignment.points}
+                </th>
+              ))}
+            </tr>
           </thead>
 
           <tbody>
             {es.map((enrollment) => {
               const user = users.find((user) => user._id === enrollment.user);
               return (
-                <tr>
+                <tr key={user?._id}>
                   <td>
                     {user?.firstName} {user?.lastName}
                   </td>
-                  {assignments.map((assignment) => {
+                  {as.map((assignment) => {
                     const grade = grades.find(
                       (grade) =>
                         grade.student === enrollment.user && grade.assignment === assignment._id
                     );
-                    return <td>{grade?.grade || ""}</td>;
+                    return (
+                      <td>
+                        {grade?.grade || (
+                          <div className="d-flex">
+                            <input className="form-control" value="100" />
+                            &nbsp;
+                            <FaArrowCircleRight className="text-center" />
+                          </div>
+                        )}
+                      </td>
+                    );
                   })}
                 </tr>
               );

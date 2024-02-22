@@ -1,11 +1,12 @@
-import ModuleList from "./List";
+import ModuleList from "./ModuleList";
+import Toolbar from "./Toolbar";
 
 function Modules() {
   return (
-    <>
-      <h2>Modules</h2>
+    <div>
+      <Toolbar />
       <ModuleList />
-    </>
+    </div>
   );
 }
 export default Modules;

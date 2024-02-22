@@ -28,16 +28,16 @@ function AssignmentEditor() {
         <hr />
 
         <form action="#">
-          <div className="row mt-5">
+          <div className="row mt-3">
             <label className="ps-0" htmlFor="assignment_name">
-              Assignment Name
+              <h3> Assignment Name</h3>
             </label>
             <input
               type="text"
               name="assignment_name"
               id="assignment_name"
               className="form-control w-50"
-              value={""}
+              value={assignment?.title}
             />
           </div>
           <div className="row mt-5">
@@ -47,6 +47,7 @@ function AssignmentEditor() {
               cols={30}
               rows={10}
               className="form-control w-50"
+              value={assignment?.description}
             >
               Assignment Description
             </textarea>
@@ -197,8 +198,8 @@ function AssignmentEditor() {
 
                 <div className="col-12 pe-0 ps-0 mt-4">
                   <button className="btn btn-secondary w-100">
-                    <FaPlus />
-                    Add
+                    <FaPlus className="mx-1" size={16} />
+                    <span className="text-center">Add</span>
                   </button>
                 </div>
               </div>
@@ -207,18 +208,23 @@ function AssignmentEditor() {
           <hr />
           <div className="row mt-2">
             <div className="col-12">
-              <label>
+              <label className="form-check-label">
                 <input type="checkbox" name="notify" className="form-check-input" />
-                Notify users that this content has changed
+                &nbsp;Notify users that this content has changed
               </label>
-              <button onClick={handleSave} className="btn btn-danger float-end" type="submit">
-                Save
-              </button>
-              <button className="btn btn-light float-end me-2" type="submit">
-                <Link to={`/Kanbas/Courses/${courseId}/Assignments`} className="btn btn-secondary">
-                  Cancel
-                </Link>
-              </button>
+              <span className="float-end">
+                <button className="btn btn-light " type="submit">
+                  <Link
+                    to={`/Kanbas/Courses/${courseId}/Assignments`}
+                    className="btn btn-secondary"
+                  >
+                    Cancel
+                  </Link>
+                </button>
+                <button onClick={handleSave} className="btn btn-danger " type="submit">
+                  Save
+                </button>
+              </span>
             </div>
           </div>
 
