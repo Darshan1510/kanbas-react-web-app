@@ -1,0 +1,231 @@
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { assignments } from "../../../Database";
+import { FaPlus } from "react-icons/fa";
+
+function AssignmentEditor() {
+  const { assignmentId } = useParams();
+  const assignment = assignments.find((assignment) => assignment._id === assignmentId);
+  const { courseId } = useParams();
+  const navigate = useNavigate();
+  const handleSave = () => {
+    console.log("Actually saving assignment TBD in later assignments");
+    navigate(`/Kanbas/Courses/${courseId}/Assignments`);
+  };
+  return (
+    <div className="container">
+      <div>
+        <div className="row">
+          <div className="col">
+            <button className="btn btn-light border float-end">
+              <i className="fa fa-ellipsis-v"></i>
+            </button>
+            <button className="btn btn-success float-end mx-2" disabled>
+              <i className="fa fa-check-circle"></i> Published
+            </button>
+          </div>
+        </div>
+
+        <hr />
+
+        <form action="#">
+          <div className="row mt-5">
+            <label className="ps-0" htmlFor="assignment_name">
+              Assignment Name
+            </label>
+            <input
+              type="text"
+              name="assignment_name"
+              id="assignment_name"
+              className="form-control w-50"
+              value={""}
+            />
+          </div>
+          <div className="row mt-5">
+            <textarea
+              name="description"
+              id="description"
+              cols={30}
+              rows={10}
+              className="form-control w-50"
+            >
+              Assignment Description
+            </textarea>
+          </div>
+          <div className="row mt-5">
+            <div className="col-2">
+              <label className="form-label float-end" htmlFor="points">
+                Points
+              </label>
+            </div>
+            <div className="col-4">
+              <input
+                type="number"
+                id="points"
+                min="0"
+                max="100"
+                value="100"
+                className="form-control"
+              />
+            </div>
+          </div>
+          <div className="row mt-5">
+            <div className="col-2">
+              <label className="form-label float-end" htmlFor="assignment-group">
+                Assignment Group
+              </label>
+            </div>
+            <div className="col-4">
+              <select
+                id="assignment-group"
+                className="form-select"
+                aria-label="Default select example"
+              >
+                <option value="ASSIGNMENTS" selected />
+                ASSIGNMENTS
+              </select>
+            </div>
+          </div>
+          <div className="row mt-5">
+            <div className="col-2">
+              <label className="form-label float-end" htmlFor="grade-display">
+                Display Grade as
+              </label>
+            </div>
+            <div className="col-4">
+              <select
+                id="grade-display"
+                className="form-select"
+                aria-label="Default select example"
+              >
+                <option value="Percentage" selected />
+                Percentage
+              </select>
+            </div>
+          </div>
+          <div className="row mt-5">
+            <div className="col-2">
+              <label className="form-label float-end" htmlFor="submission-type">
+                Submission Type
+              </label>
+            </div>
+            <div className="col-4">
+              <select
+                id="submission-type"
+                className="form-select"
+                aria-label="Default select example"
+              >
+                <option value="submission-type" selected /> Online
+              </select>
+            </div>
+          </div>
+
+          <div className="row mt-5">
+            <div className="col-2">
+              <label className="form-label float-end">Online Entry Options</label>
+            </div>
+            <div className="col-4">
+              <label className="form-check-label">
+                <input className="form-check-input" type="checkbox" /> Text Entry
+              </label>
+              <br />
+              <label className="mt-3 form-check-label">
+                <input className="form-check-input" type="checkbox" /> Website URL
+              </label>
+              <br />
+              <label className="mt-3 form-check-label">
+                <input className="form-check-input" type="checkbox" /> Media Recordings
+              </label>
+              <br />
+              <label className="mt-3 form-check-label">
+                <input className="form-check-input" type="checkbox" /> Student Annotation
+              </label>
+              <br />
+              <label className="mt-3 mb-3 form-check-label">
+                <input className="form-check-input" type="checkbox" /> File Uploads
+              </label>
+
+              <br />
+              <label htmlFor="count-final-grade" className="form-check-label">
+                <input type="checkbox" className="form-check-input" id="count-final-grade" />
+                &nbsp;Do not count this assignment towards the final grade
+              </label>
+            </div>
+          </div>
+
+          <div className="row mt-5">
+            <div className="col-2">
+              <label className="form-label float-end" htmlFor="Assign">
+                Assign
+              </label>
+            </div>
+            <div className="col-10">
+              <div className="row border border-1" style={{ width: "45%" }}>
+                <div className="col-12">
+                  <label className="form-label mt-3">
+                    <h4>Assign to</h4>
+                    <input className="form-control" id="Assign" type="text" value="Everyone" />
+                  </label>
+                </div>
+
+                <div className="col-12">
+                  <label className="form-label" htmlFor="Due">
+                    {" "}
+                    Due
+                  </label>
+                  <input className="form-control" id="Due" type="date" value="2021-01-01" />
+                </div>
+
+                <div className="col-6 pe-0 mt-3">
+                  <label className="form-label" htmlFor="available-from">
+                    Available from
+                  </label>
+                  <input
+                    className="form-control"
+                    id="available-from"
+                    type="date"
+                    value="2021-01-01"
+                  />
+                </div>
+
+                <div className="col-6 ps-1 mt-3">
+                  <label className="form-label" htmlFor="until">
+                    {" "}
+                    Until
+                  </label>
+                  <input className="form-control" id="until" type="date" value="2021-01-01" />
+                </div>
+
+                <div className="col-12 pe-0 ps-0 mt-4">
+                  <button className="btn btn-secondary w-100">
+                    <FaPlus />
+                    Add
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr />
+          <div className="row mt-2">
+            <div className="col-12">
+              <label>
+                <input type="checkbox" name="notify" className="form-check-input" />
+                Notify users that this content has changed
+              </label>
+              <button onClick={handleSave} className="btn btn-danger float-end" type="submit">
+                Save
+              </button>
+              <button className="btn btn-light float-end me-2" type="submit">
+                <Link to={`/Kanbas/Courses/${courseId}/Assignments`} className="btn btn-secondary">
+                  Cancel
+                </Link>
+              </button>
+            </div>
+          </div>
+
+          <hr />
+        </form>
+      </div>
+    </div>
+  );
+}
+export default AssignmentEditor;

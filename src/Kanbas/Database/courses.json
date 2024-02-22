@@ -1,0 +1,38 @@
+[
+  {
+    "_id": "SP101",
+    "name": "Web Development",
+    "text": "React JS, Node JS, MongoDB",
+    "image": "/images/reactjs.webp",
+    "number": "WD101",
+    "startDate": "2023-01-10",
+    "endDate": "2023-05-15"
+  },
+  {
+    "_id": "SP102",
+    "name": "Information Retrieval",
+    "text": "Effective search techniques, Elastic search",
+    "image": "/images/elasticsearch.png",
+    "number": "IR102",
+    "startDate": "2023-01-10",
+    "endDate": "2023-05-15"
+  },
+  {
+    "_id": "SP103",
+    "name": "Program Design Paradigm",
+    "text": "Object-oriented design, Java, Design patterns",
+    "image": "/images/java.png",
+    "number": "PDP103",
+    "startDate": "2023-01-10",
+    "endDate": "2023-05-15"
+  },
+  {
+    "_id": "SP104",
+    "name": "Machine Learning",
+    "text": "Supervised and Unsupervised machine learning",
+    "image": "/images/ml.jpg",
+    "number": "ML104",
+    "startDate": "2023-01-10",
+    "endDate": "2023-05-15"
+  }
+]
