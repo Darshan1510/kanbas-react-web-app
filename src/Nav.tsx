@@ -6,6 +6,9 @@ export default function Nav() {
       <Link to="/Labs/a3" className={`nav-link ${pathname.includes("a3") ? "active" : ""}`}>
         A3
       </Link>
+      <Link className={`nav-link ${pathname.includes("a4") ? "active" : ""}`} to="/Labs/a4">
+        A4
+      </Link>
       <Link to="/Kanbas" className={`nav-link ${pathname.includes("Kanbas") ? "active" : ""}`}>
         Kanbas
       </Link>
