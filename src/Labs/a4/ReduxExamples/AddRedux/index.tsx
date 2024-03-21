@@ -18,13 +18,13 @@ function AddRedux() {
         type="number"
         value={a}
         onChange={(e) => setA(parseInt(e.target.value))}
-        className="form-control"
+        className="form-control my-1"
       />
       <input
         type="number"
         value={b}
         onChange={(e) => setB(parseInt(e.target.value))}
-        className="form-control"
+        className="form-control my-1"
       />
       <button onClick={() => dispatch(add({ a, b }))} className="btn btn-primary">
         Add Redux

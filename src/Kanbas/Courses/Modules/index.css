@@ -24,12 +24,15 @@
 .wd-modules > li > ul > li {
   padding: 5px;
   border-top: 1px solid gray !important;
-  border-left: 2px solid;
+  border-left: 2px solid green;
 }
 
 .wd-modules > li > ul > li > ul > li {
-  padding: 10px;
-  border-top: 1px solid gray !important;
+  padding-left: 25px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border: none;
+  padding-right: 0px;
 }
 
 .wd-modules > li > ul > li > ul > li > a {

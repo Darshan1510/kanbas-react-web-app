@@ -1,14 +1,28 @@
-import { Link, useNavigate, useParams } from "react-router-dom";
-import { assignments } from "../../../Database";
+import { useEffect, useState } from "react";
 import { FaPlus } from "react-icons/fa";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
+import { KanbasState } from "../../../store";
+import { addAssignment, setAssignment, updateAssignment } from "../assignmentsReducer";
 
 function AssignmentEditor() {
-  const { assignmentId } = useParams();
-  const assignment = assignments.find((assignment) => assignment._id === assignmentId);
   const { courseId } = useParams();
   const navigate = useNavigate();
+  const [isNewAssignment, setIsNewAssignment] = useState(false);
+  const location = useLocation();
+  useEffect(() => {
+    setIsNewAssignment(location.pathname.endsWith("/add"));
+  }, [location.pathname]);
+
+  const assignment = useSelector((state: KanbasState) => state.assignmentsReducer.assignment);
+  const dispatch = useDispatch();
+
   const handleSave = () => {
-    console.log("Actually saving assignment TBD in later assignments");
+    if (isNewAssignment) {
+      dispatch(addAssignment({ ...assignment, course: courseId }));
+    } else {
+      dispatch(updateAssignment(assignment));
+    }
     navigate(`/Kanbas/Courses/${courseId}/Assignments`);
   };
   return (
@@ -38,6 +52,7 @@ function AssignmentEditor() {
               id="assignment_name"
               className="form-control w-50"
               value={assignment?.title}
+              onChange={(e) => dispatch(setAssignment({ ...assignment, title: e.target.value }))}
             />
           </div>
           <div className="row mt-5">
@@ -48,6 +63,9 @@ function AssignmentEditor() {
               rows={10}
               className="form-control w-50"
               value={assignment?.description}
+              onChange={(e) =>
+                dispatch(setAssignment({ ...assignment, description: e.target.value }))
+              }
             >
               Assignment Description
             </textarea>
@@ -66,6 +84,7 @@ function AssignmentEditor() {
                 max="100"
                 value="100"
                 className="form-control"
+                onChange={(e) => dispatch(setAssignment({ ...assignment, points: e.target.value }))}
               />
             </div>
           </div>
@@ -173,7 +192,15 @@ function AssignmentEditor() {
                     {" "}
                     Due
                   </label>
-                  <input className="form-control" id="Due" type="date" value="2021-01-01" />
+                  <input
+                    className="form-control"
+                    id="Due"
+                    type="date"
+                    value="2021-01-01"
+                    onChange={(e) =>
+                      dispatch(setAssignment({ ...assignment, due_date: e.target.value }))
+                    }
+                  />
                 </div>
 
                 <div className="col-6 pe-0 mt-3">
@@ -185,6 +212,9 @@ function AssignmentEditor() {
                     id="available-from"
                     type="date"
                     value="2021-01-01"
+                    onChange={(e) =>
+                      dispatch(setAssignment({ ...assignment, availableFromDate: e.target.value }))
+                    }
                   />
                 </div>
 
@@ -193,7 +223,15 @@ function AssignmentEditor() {
                     {" "}
                     Until
                   </label>
-                  <input className="form-control" id="until" type="date" value="2021-01-01" />
+                  <input
+                    className="form-control"
+                    id="until"
+                    type="date"
+                    value="2021-01-01"
+                    onChange={(e) =>
+                      dispatch(setAssignment({ ...assignment, availableUntilDate: e.target.value }))
+                    }
+                  />
                 </div>
 
                 <div className="col-12 pe-0 ps-0 mt-4">

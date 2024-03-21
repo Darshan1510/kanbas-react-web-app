@@ -1,12 +1,12 @@
 import { FaBars, FaChevronRight } from "react-icons/fa";
 import { HiMiniBars3 } from "react-icons/hi2";
 import { Link, useParams } from "react-router-dom";
-import { courses } from "../../../../Kanbas/Database";
+import db from "../../../../Kanbas/Database";
 
 function BreadCrumb() {
   const { courseId } = useParams();
   //const history = useHistory();
-  const course = courses.find((course) => course._id === courseId);
+  const course = db.courses.find((course) => course._id === courseId);
 
   let arr = window.location.hash.split("/");
 
