@@ -5,6 +5,7 @@ function Modules() {
   return (
     <div>
       <Toolbar />
+      <hr />
       <ModuleList />
     </div>
   );

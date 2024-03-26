@@ -7,6 +7,7 @@ function Home() {
     <div className="d-flex">
       <div className="col-9">
         <Toolbar />
+        <hr/>
         <ModuleList />
       </div>
       <CourseStatus />
