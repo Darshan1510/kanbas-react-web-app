@@ -1,10 +1,11 @@
 import { FaCheckCircle, FaEdit, FaEllipsisV, FaGripVertical, FaPlusCircle } from "react-icons/fa";
 import { Link, useParams } from "react-router-dom";
-import db from "../../Database";
 import "./index.css";
 import { useDispatch, useSelector } from "react-redux";
 import { KanbasState } from "../../store";
-import { deleteAssignment, setAssignment } from "./assignmentsReducer";
+import { deleteAssignment, setAssignment, setAssignments } from "./assignmentsReducer";
+import { useEffect } from "react";
+import * as client from "./client";
 
 function Assignments() {
   const { courseId } = useParams();
@@ -14,9 +15,19 @@ function Assignments() {
   const handleDelete = (assignmentId: string) => {
     const isConfirmed = window.confirm("Are you sure you want to delete this assignment?");
     if (isConfirmed) {
-      dispatch(deleteAssignment(assignmentId));
+      client.deleteAssignment(assignmentId).then((status) => {
+        dispatch(deleteAssignment(assignmentId));
+      });
+     
     }
   };
+
+  useEffect(() => {
+    client.findAssignmentsForCourse(courseId).then((assignments) => {
+      dispatch(setAssignments(assignments));
+    });
+  }, [courseId]);
+
   return (
     <div>
       <div className="d-flex">

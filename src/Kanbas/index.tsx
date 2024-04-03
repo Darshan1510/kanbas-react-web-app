@@ -3,9 +3,10 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import Dashboard from "./Dashboard";
 import Courses from "./Courses";
 import db from "./Database";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import store from "./store";
 import { Provider } from "react-redux";
+import axios from "axios";
 
 function Kanbas() {
   const [courses, setCourses] = useState<any[]>(db.courses);
@@ -17,23 +18,36 @@ function Kanbas() {
     endDate: "2023-12-15",
     image: "ml.jpg",
   });
-  const addNewCourse = () => {
-    setCourses([...courses, { ...course, _id: new Date().getTime().toString() }]);
+  const addNewCourse = async () => {
+    const response = await axios.post(COURSES_API, course);
+    setCourses([...courses, response.data]);
   };
-  const deleteCourse = (courseId: any) => {
+
+  const deleteCourse = async (courseId: any) => {
+    const response = await axios.delete(`${COURSES_API}/${courseId}`);
     setCourses(courses.filter((course) => course._id !== courseId));
   };
-  const updateCourse = () => {
+
+  const updateCourse = async () => {
+    const response = await axios.put(`${COURSES_API}/${course._id}`, course);
     setCourses(
       courses.map((c) => {
         if (c._id === course._id) {
           return course;
-        } else {
-          return c;
         }
+        return c;
       })
     );
   };
+  const API_BASE = process.env.REACT_APP_API_BASE;
+  const COURSES_API = `${API_BASE}/api/courses`;
+  const findAllCourses = async () => {
+    const response = await axios.get(COURSES_API);
+    setCourses(response.data);
+  };
+  useEffect(() => {
+    findAllCourses();
+  }, []);
 
   return (
     <Provider store={store}>
@@ -57,7 +71,7 @@ function Kanbas() {
               }
             />
             <Route path="Courses/*" element={<h1>Courses</h1>} />
-            <Route path="Courses/:courseId/*" element={<Courses courses={courses} />} />
+            <Route path="Courses/:courseId/*" element={<Courses />} />
             <Route path="Calendar" element={<h1>Calendar</h1>} />
             <Route path="Inbox" element={<h1>Inbox</h1>} />
             <Route path="History" element={<h1>History</h1>} />

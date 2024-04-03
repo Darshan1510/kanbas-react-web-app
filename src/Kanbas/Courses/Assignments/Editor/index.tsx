@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import { KanbasState } from "../../../store";
 import { addAssignment, setAssignment, updateAssignment } from "../assignmentsReducer";
+import * as client from "../client";
 
 function AssignmentEditor() {
   const { courseId } = useParams();
@@ -17,10 +18,15 @@ function AssignmentEditor() {
   const assignment = useSelector((state: KanbasState) => state.assignmentsReducer.assignment);
   const dispatch = useDispatch();
 
-  const handleSave = () => {
+  const handleSave = async (e: any) => {
+    e.preventDefault();
+
     if (isNewAssignment) {
-      dispatch(addAssignment({ ...assignment, course: courseId }));
+      client.createAssignment(courseId, assignment).then((assignment) => {
+        dispatch(addAssignment(assignment));
+      });
     } else {
+      const status = await client.updateAssignment(assignment);
       dispatch(updateAssignment(assignment));
     }
     navigate(`/Kanbas/Courses/${courseId}/Assignments`);
@@ -82,7 +88,7 @@ function AssignmentEditor() {
                 id="points"
                 min="0"
                 max="100"
-                value="100"
+                value={assignment?.points}
                 className="form-control"
                 onChange={(e) => dispatch(setAssignment({ ...assignment, points: e.target.value }))}
               />
@@ -116,6 +122,9 @@ function AssignmentEditor() {
                 id="grade-display"
                 className="form-select"
                 aria-label="Default select example"
+                onChange={(e) =>
+                  dispatch(setAssignment({ ...assignment, displayGrade: e.target.value }))
+                }
               >
                 <option value="Percentage" selected />
                 Percentage
@@ -133,6 +142,9 @@ function AssignmentEditor() {
                 id="submission-type"
                 className="form-select"
                 aria-label="Default select example"
+                onChange={(e) =>
+                  dispatch(setAssignment({ ...assignment, submissionType: e.target.value }))
+                }
               >
                 <option value="submission-type" selected /> Online
               </select>
@@ -198,7 +210,7 @@ function AssignmentEditor() {
                     type="date"
                     value="2021-01-01"
                     onChange={(e) =>
-                      dispatch(setAssignment({ ...assignment, due_date: e.target.value }))
+                      dispatch(setAssignment({ ...assignment, dueDate: e.target.value }))
                     }
                   />
                 </div>
@@ -259,7 +271,7 @@ function AssignmentEditor() {
                     Cancel
                   </Link>
                 </button>
-                <button onClick={handleSave} className="btn btn-danger " type="submit">
+                <button onClick={(e) => handleSave(e)} className="btn btn-danger " type="submit">
                   Save
                 </button>
               </span>
