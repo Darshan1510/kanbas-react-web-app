@@ -90,7 +90,7 @@ function ModuleList() {
               <FaEllipsisV className="mx-2" />
             </span>
           </div>
-          {selectedModule._id === module._id && (
+          {selectedModule && selectedModule._id === module._id && (
             <ul className="list-group">
               {module.lessons?.map((lesson: any) => (
                 <li key={lesson._id} className="list-group-item">
