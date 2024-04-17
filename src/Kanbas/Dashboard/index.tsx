@@ -68,11 +68,11 @@ function Dashboard({
           {courses.map((course) => (
             <div key={course._id} className="col" style={{ width: 300, minWidth: 300 }}>
               <div className="card">
-                <img src={`/images/${course.image}`} style={{ height: "150px" }} />
+                <img src={`/images/reactjs.png`} style={{ height: "150px" }} />
                 <div className="card-body">
                   <Link
                     className="card-title"
-                    to={`/Kanbas/Courses/${course._id}/Home`}
+                    to={`/Kanbas/Courses/${course.number}/Home`}
                     style={{ textDecoration: "none", color: "navy", fontWeight: "bold" }}
                   >
                     {course.name}{" "}
@@ -85,7 +85,7 @@ function Dashboard({
                     <i className="fa fa-folder fa-1x text-secondary mx-2"></i>
                   </div>
                   <Link
-                    to={`/Kanbas/Courses/${course._id}/Home`}
+                    to={`/Kanbas/Courses/${course.number}/Home`}
                     className="btn btn-outline-primary btn-sm"
                   >
                     Go{" "}
