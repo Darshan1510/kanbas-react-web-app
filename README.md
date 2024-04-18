@@ -1,3 +1,25 @@
+# Kanbas React Web App
+
+## Description
+
+Kanbas React Web App is the frontend web application developed for the CS 5610 Web Development course project. This application serves as the user interface for Kanbas, a website inspired by a popular online Learning Management System (LMS). It interacts with the Kanbas Node Server App backend to provide users with features such as course management, assignments, grades, and more.
+
+## Features
+
+- **User Authentication**: Allows users to sign up, log in, and log out securely to access their accounts and data.
+  
+- **Dashboard**: Provides users with a personalized dashboard displaying their enrolled courses, upcoming assignments, and other relevant information.
+  
+- **Course Management**: Enables users to browse, enroll in, and manage courses, including viewing course materials, submitting assignments, and participating in discussions.
+  
+- **Assignment Management**: Allows users to view assignment details, submit assignments, and view grades and feedback provided by instructors.
+  
+- **User Profile**: Provides users with a profile page where they can view and update their personal information and preferences.
+
+## Deployment
+
+The frontend of Kanbas is deployed and accessible at: [Kanbas React Web App Deployment](https://kanbas-react-web-app-ds.netlify.app/#/Labs)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
